@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "407035927023",
+    "project_id": "lufickassignment",
+    "storage_bucket": "lufickassignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407035927023:android:691bd3a512f9fd6674be1a",
+        "android_client_info": {
+          "package_name": "com.example.assignment_lufick"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_ZanEjBDCUmQehbmcLP8uWkajIpWrd4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
