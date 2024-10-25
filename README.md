@@ -1,6 +1,7 @@
 # assignment_lufick
 
 **Regarding this project**
+
 This is simple app with have some screens like Splash, Login, Signup, Details, Home and Profile screen, in home screen there is pie chart which shows expenses
 with percentage of any user and have also list of all categories of expenses, on tapping on any list we can see future deailed
 info of that category, and on profile screen user can see their Account info if user is logged in though google only, 
