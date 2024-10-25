@@ -4,7 +4,7 @@ import 'package:assignment_lufick/presentation/screens/home/home_screen.dart';
 import 'package:assignment_lufick/presentation/screens/home/profile_screen.dart';
 import 'package:assignment_lufick/presentation/screens/home/user_feed_screen.dart';
 import 'package:assignment_lufick/presentation/screens/other/expense_details_page.dart';
-import 'package:assignment_lufick/presentation/screens/splash/spash_screen.dart';
+import 'package:assignment_lufick/presentation/screens/splash/slpash_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 class Routes{
@@ -22,8 +22,8 @@ class Routes{
       case LoginScreen.routeName:return CupertinoPageRoute(
         builder: (context)=> const LoginScreen() );  
 
-      case SpashScreen.routeName:return CupertinoPageRoute(
-        builder: (context)=> const SpashScreen() );  
+      case SplashScreen.routeName:return CupertinoPageRoute(
+        builder: (context)=> const SplashScreen() );  
 
       case SignUpScreen.routeName:return CupertinoPageRoute(
         builder: (context)=> const SignUpScreen() );

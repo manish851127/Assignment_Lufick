@@ -2,6 +2,8 @@ import 'package:assignment_lufick/core/dart_theme.dart';
 import 'package:assignment_lufick/core/light_theme.dart';
 import 'package:assignment_lufick/core/routes.dart';
 import 'package:assignment_lufick/presentation/screens/auth/login_screen.dart';
+import 'package:assignment_lufick/presentation/screens/home/home_screen.dart';
+import 'package:assignment_lufick/presentation/screens/splash/slpash_screen.dart';
 import 'package:assignment_lufick/user_cubit/user_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
         darkTheme: darkTheme,
         debugShowCheckedModeBanner: false,      
         onGenerateRoute: Routes.onGenerateRoute,
-        initialRoute: LoginScreen.routeName,   
+        initialRoute: SplashScreen.routeName,   
       ),
     );
   }

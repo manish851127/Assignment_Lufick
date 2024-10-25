@@ -1,6 +1,5 @@
 import 'package:assignment_lufick/presentation/screens/home/profile_screen.dart';
 import 'package:assignment_lufick/presentation/screens/home/user_feed_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 

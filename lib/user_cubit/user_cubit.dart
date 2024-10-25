@@ -7,10 +7,22 @@ class UserCubit extends Cubit<UserState> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   UserCredential? userCredential;
-  UserCubit() : super(UserInitialState());
+  UserCubit() : super(UserInitialState()){
+        _checkUserStatus();
+  }
+
+
+  // Check initial auth status and emit corresponding state
+  Future<void> _checkUserStatus() async {
+    final User? user = _auth.currentUser;
+    if (user != null) {
+      emit(UserLoggedInState(user));
+    } else {
+      emit(UserLoggedOutState());
+    }
+  }
 
   Future<void> signInWithGoogle() async {
-
     try {
       emit(UserLoadingState());
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -60,6 +72,7 @@ class UserCubit extends Cubit<UserState> {
 
   Future<void> signOut() async {
     await _auth.signOut();
+    await GoogleSignIn().signOut();
     emit(UserLoggedOutState());
   }
 }

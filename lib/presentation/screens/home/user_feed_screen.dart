@@ -42,7 +42,7 @@ class _UserFeedScreenState extends State<UserFeedScreen> {
          children: [
            PieChartPage(),
            
-           Container(height: 30),
+           Container(height: 20,color: Color.fromARGB(255, 246, 246, 248),),
            Padding(
              padding: const EdgeInsets.only(left: 10,top: 10),
              child: Text('Top spending by categories',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
