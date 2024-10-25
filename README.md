@@ -1,16 +1,17 @@
 # assignment_lufick
 
-A new Flutter project.
+**Regarding this project**
+This is simple app with have some screens like Splash, Login, Signup, Details, Home and Profile screen, in home screen there is pie chart which shows expenses
+with percentage of any user and have also list of all categories of expenses, on tapping on any list we can see future deailed
+info of that category, and on profile screen user can see their Account info if user is logged in though google only, 
 
-## Getting Started
+**How to use this app??**
+1. Create a account using signup button or signup using google
+2. Login using google or email and password
+3. Tap on Login button and you will be redired to Home Page direcly
 
-This project is a starting point for a Flutter application.
+Note: Profile can be be null if user dont login thought google and if user is logged in though google then it can take fraction of second for loading user profile
+so please patiently wait while loading images
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Thanks to you reading README,
+Have a good day!
