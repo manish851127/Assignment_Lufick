@@ -54,7 +54,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 38,
-                          color: Colors.black87,
                           fontWeight: FontWeight.bold),
                     ),
                     const Space(),
@@ -115,7 +114,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           "Dont't have a account? ",
                           style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black87,
                               fontWeight: FontWeight.bold),
                         ),
                         LinkButton(

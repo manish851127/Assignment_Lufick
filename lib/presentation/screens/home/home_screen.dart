@@ -21,16 +21,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme mycolor= Theme.of(context).colorScheme;
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.primary,
       bottomNavigationBar: BottomNavigationBar(
+        unselectedLabelStyle: TextStyle(color: Colors.black,fontSize: 14),
+        fixedColor: mycolor.onPrimary,
         onTap: (value) {
           setState(() {
             currentIndex=value;
           });
         },
-        items:const [
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.home),label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.person_fill),label: 'Profile'),
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person,color: mycolor.onPrimary,),label: 'Profile'),
 
         ]
         ),

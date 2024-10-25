@@ -27,11 +27,11 @@ class _UserFeedScreenState extends State<UserFeedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Expenses',style: TextStyles.heading1,),centerTitle: false,
+      appBar: AppBar(title: Text('Expenses',style: TextStyle(fontSize: 26,fontWeight: FontWeight.bold),),centerTitle: true,
        actions: [
           TextButton(
             onPressed: _exportToPDF,
-            child: Text("Export to PDF"),
+            child: Text("Export to PDF",),
           ),
         ],
       
@@ -42,10 +42,10 @@ class _UserFeedScreenState extends State<UserFeedScreen> {
          children: [
            PieChartPage(),
            
-           Container(height: 30,color: Colors.white,),
+           Container(height: 30),
            Padding(
              padding: const EdgeInsets.only(left: 10,top: 10),
-             child: Text('Top spending by categories',style: TextStyles.heading2,),
+             child: Text('Top spending by categories',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
            ),
            Space(),
            ListView.builder(

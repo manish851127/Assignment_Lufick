@@ -78,7 +78,6 @@ final instance=FirebaseAuth.instance;
                     
                     const  Text('Sign Up',textAlign:TextAlign.center, style: TextStyle(
                         fontSize: 38,
-                        color: Colors.black87,
                         fontWeight: FontWeight.bold
                       ),),
                     
@@ -151,7 +150,6 @@ final instance=FirebaseAuth.instance;
                       children: [
                        const  Text("Already have an account? ", style: TextStyle(
                         fontSize: 18,
-                        color: Colors.black87,
                         fontWeight: FontWeight.bold
                       ),),
                       LinkButton(buttonName: "Sign In",function: (){

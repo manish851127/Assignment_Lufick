@@ -1,3 +1,5 @@
+import 'package:assignment_lufick/core/dart_theme.dart';
+import 'package:assignment_lufick/core/light_theme.dart';
 import 'package:assignment_lufick/core/routes.dart';
 import 'package:assignment_lufick/presentation/screens/auth/login_screen.dart';
 import 'package:assignment_lufick/user_cubit/user_cubit.dart';
@@ -22,7 +24,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context)=>  UserCubit())
       ],
       
-      child:const MaterialApp(
+      child: MaterialApp(
+        theme: lightTheme,
+        darkTheme: darkTheme,
         debugShowCheckedModeBanner: false,      
         onGenerateRoute: Routes.onGenerateRoute,
         initialRoute: LoginScreen.routeName,   

@@ -21,7 +21,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       final userCubit = context.read<UserCubit>(); // Access the UserCubit
       return Scaffold(
         appBar: AppBar(
-          title: const Text('My Profile',style: TextStyle(fontWeight: FontWeight.bold),),
+          title: const Text('My Profile',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
           centerTitle: true,
         ),
         body: Padding(
@@ -43,11 +43,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Column(children: [
                 Text(
                   '${userCubit.userCredential!.user!.displayName }',
-                  style: TextStyles.heading1,
+                  style: TextStyle(fontSize: 35,fontWeight: FontWeight.bold),
                   ),
               Text(
                   '${userCubit.userCredential!.user!.email }',
-                  style: TextStyles.body1,
+                  style: TextStyle(fontSize: 16,fontWeight: FontWeight.normal),
                   ),
                   Space(),
                ClipRRect(
