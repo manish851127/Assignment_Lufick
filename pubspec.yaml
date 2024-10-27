@@ -43,7 +43,9 @@ dependencies:
   fl_chart: ^0.69.0
   pdf: ^3.11.1
   printing: ^5.12.0
-  path_provider: ^2.1.4
+  # Store genearated pdf
+  path_provider: ^2.1.4  
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:

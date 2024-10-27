@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:assignment_lufick/presentation/screens/auth/login_screen.dart';
 import 'package:assignment_lufick/presentation/screens/home/home_screen.dart';
-import 'package:assignment_lufick/user_cubit/user_cubit.dart';
-import 'package:assignment_lufick/user_cubit/user_state.dart';
+import 'package:assignment_lufick/logic/cubit/user_cubit/user_cubit.dart';
+import 'package:assignment_lufick/logic/cubit/user_cubit/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

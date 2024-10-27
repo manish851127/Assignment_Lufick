@@ -1,4 +1,4 @@
-import 'package:assignment_lufick/user_cubit/user_state.dart';
+import 'package:assignment_lufick/logic/cubit/user_cubit/user_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

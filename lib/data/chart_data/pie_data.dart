@@ -11,7 +11,7 @@ class PieData {
 
 class Data {
   final String? name;
-    final String? category;
+  final String? category;
   final double? percent;
   final Color? color;
   final int? money;

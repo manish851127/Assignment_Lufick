@@ -6,8 +6,8 @@ import 'package:assignment_lufick/presentation/widgets/link_button.dart';
 import 'package:assignment_lufick/presentation/widgets/primary_button.dart';
 import 'package:assignment_lufick/presentation/widgets/primary_textfield.dart';
 import 'package:assignment_lufick/presentation/widgets/space_widget.dart';
-import 'package:assignment_lufick/user_cubit/user_cubit.dart';
-import 'package:assignment_lufick/user_cubit/user_state.dart';
+import 'package:assignment_lufick/logic/cubit/user_cubit/user_cubit.dart';
+import 'package:assignment_lufick/logic/cubit/user_cubit/user_state.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -53,9 +53,11 @@ final instance=FirebaseAuth.instance;
             } else if (state is UserLoggedInState) {
               // Hide loading and navigate to another page, like login or home
               Navigator.pop(context);  // Close the loading dialog
+
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Registration successful!")),
+                const SnackBar(content: Text("Logged In successful!")),
               );
+              
               Navigator.pushReplacementNamed(context, HomeScreen.routeName);  // Redirect to login page
             } else if (state is UserErrorState) {
               // Hide loading and show error message
@@ -83,7 +85,7 @@ final instance=FirebaseAuth.instance;
                     
                      const Space(),
                   
-                     SizedBox(height: 5,),
+                     const SizedBox(height: 5,),
                     
                      PrimaryTextfield(
                       labelText: "Email Address", 

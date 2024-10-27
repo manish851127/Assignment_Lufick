@@ -12,13 +12,12 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-
 class UserFeedScreen extends StatefulWidget {
   const UserFeedScreen({super.key});
 
   @override
   State<UserFeedScreen> createState() => _UserFeedScreenState();
-  static const routeName="userFeed";
+  static const routeName = "userFeed";
 }
 
 class _UserFeedScreenState extends State<UserFeedScreen> {
@@ -27,50 +26,65 @@ class _UserFeedScreenState extends State<UserFeedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Expenses',style: TextStyle(fontSize: 26,fontWeight: FontWeight.bold),),centerTitle: true,
-       actions: [
+      appBar: AppBar(
+        title: const Text(
+          'Expenses',
+          style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        actions: [
           TextButton(
             onPressed: _exportToPDF,
-            child: Text("Export to PDF",),
+            child: const Text(
+              "Export to PDF",
+            ),
           ),
         ],
-      
       ),
       body: RepaintBoundary(
         key: chartKey,
         child: ListView(
-         children: [
-           PieChartPage(),
-           
-           Container(height: 20,color: Color.fromARGB(255, 246, 246, 248),),
-           Padding(
-             padding: const EdgeInsets.only(left: 10,top: 10),
-             child: Text('Top spending by categories',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
-           ),
-           Space(),
-           ListView.builder(
-             shrinkWrap: true,
-             physics: NeverScrollableScrollPhysics(),
-             itemCount: PieData.data.length,
-             itemBuilder: (context,index){
-               return ListTile(
-                onTap: () {
-                  Navigator.pushNamed(context, ExpenseDetailsPage.routeName,arguments: {
-                    'title': '${PieData.data[index].category}',
-                    'expense': PieData.data[index].money
-                  });
-                },
-                 title: Text('${PieData.data[index].category}', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 14),),
-                 leading: Icon(Icons.food_bank),
-                 subtitle: Text('Rs. ${PieData.data[index].money}'),
-               );
-             })
-        ],),
+          children: [
+            PieChartPage(),
+            Container(
+              height: 20,
+              color: Color.fromARGB(255, 246, 246, 248),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, top: 10),
+              child: Text(
+                'Top spending by categories',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const Space(),
+            ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: PieData.data.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    onTap: () {
+                      Navigator.pushNamed(context, ExpenseDetailsPage.routeName,
+                          arguments: {
+                            'title': '${PieData.data[index].category}',
+                            'expense': PieData.data[index].money
+                          });
+                    },
+                    title: Text(
+                      '${PieData.data[index].category}',
+                      style:
+                          const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                    leading: const Icon(Icons.food_bank),
+                    subtitle: Text('Rs. ${PieData.data[index].money}'),
+                  );
+                })
+          ],
+        ),
       ),
     );
   }
-
-
 
   Future<void> _exportToPDF() async {
     final pdf = pw.Document();
@@ -83,10 +97,9 @@ class _UserFeedScreenState extends State<UserFeedScreen> {
       pw.Page(
         build: (pw.Context context) {
           return pw.Column(
-            children: [              
+            children: [
               if (chartImage != null)
                 pw.Image(pw.MemoryImage(chartImage), height: 300, width: 200),
-              
             ],
           );
         },
@@ -97,14 +110,17 @@ class _UserFeedScreenState extends State<UserFeedScreen> {
     final output = await getTemporaryDirectory();
     final file = File("${output.path}/chart_example.pdf");
     await file.writeAsBytes(await pdf.save());
-    await Printing.sharePdf(bytes: await pdf.save(), filename: 'chart_example.pdf');
+    await Printing.sharePdf(
+        bytes: await pdf.save(), filename: 'chart_example.pdf');
   }
 
   Future<Uint8List?> _captureChart() async {
     try {
-      final boundary = chartKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+      final boundary =
+          chartKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
       final ui.Image image = await boundary.toImage();
-      final ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+      final ByteData? byteData =
+          await image.toByteData(format: ui.ImageByteFormat.png);
       return byteData?.buffer.asUint8List();
     } catch (e) {
       print(e);

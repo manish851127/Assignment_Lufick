@@ -3,8 +3,8 @@ import 'package:assignment_lufick/presentation/screens/home/home_screen.dart';
 import 'package:assignment_lufick/presentation/widgets/link_button.dart';
 import 'package:assignment_lufick/presentation/widgets/primary_button.dart';
 import 'package:assignment_lufick/presentation/widgets/space_widget.dart';
-import 'package:assignment_lufick/user_cubit/user_cubit.dart';
-import 'package:assignment_lufick/user_cubit/user_state.dart';
+import 'package:assignment_lufick/logic/cubit/user_cubit/user_cubit.dart';
+import 'package:assignment_lufick/logic/cubit/user_cubit/user_state.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,15 +30,34 @@ class _LoginScreenState extends State<LoginScreen> {
    
     return  BlocConsumer<UserCubit,UserState>(
       listener: (context,state) {
-          if(state is UserLoggedInState) {
-            // Navigate to the home page on successful login
-            Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-          } else if (state is UserErrorState) {
+         if(state is UserLoadingState){
+           Center(child: CircularProgressIndicator(),);
+         }
+else if (state is UserLoggedInState) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        content: Text('Dialog box'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context); // Dismiss the dialog
+              Navigator.pushReplacementNamed(context, HomeScreen.routeName); // Navigate after dismissing
+            },
+            child: Text('OK'),
+          ),
+        ],
+      );
+    },
+  );
+}
+ else if (state is UserErrorState) {
             // Optionally, show an error message
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.error)),
             );
-            }
+          }
       },
       builder: (context, state) {
        return  Scaffold(
@@ -124,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         )
                       ],
                     ),
-                                    const Space(),
+                    const Space(),
                      PrimaryButton(
                       function: (){
                         context.read<UserCubit>().signInWithGoogle(); // Call sign-in method
@@ -135,9 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             )),
           );
-      },
-          
-      
+      },        
     );
   
   }

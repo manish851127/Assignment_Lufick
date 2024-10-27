@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+          const BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.person,color: mycolor.onPrimary,),label: 'Profile'),
 
         ]
